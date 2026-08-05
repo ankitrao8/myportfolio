@@ -483,7 +483,10 @@ button {
   color: var(--text-muted);
   font-weight: 500;
   margin-bottom: 20px;
-  height: 2.4rem;
+  min-height: 2.4rem;
+  height: auto;
+  line-height: 1.4;
+  word-wrap: break-word;
 }
 
 .cursor-blink {
@@ -1254,9 +1257,18 @@ button {
 }
 
 @media (max-width: 992px) {
+  .section-container {
+    padding: 70px 20px;
+  }
+  .hero-section {
+    padding-top: 110px;
+    padding-bottom: 50px;
+    min-height: auto;
+  }
   .hero-container {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 36px;
   }
   .hero-intro {
     margin-left: auto;
@@ -1267,6 +1279,7 @@ button {
   }
   .about-grid, .contact-grid {
     grid-template-columns: 1fr;
+    gap: 36px;
   }
   .skills-grid, .info-cards-grid {
     grid-template-columns: 1fr;
@@ -1290,27 +1303,69 @@ button {
 }
 
 @media (max-width: 768px) {
+  #cursor-glow, #cursor-dot {
+    display: none !important;
+  }
+  .section-container {
+    padding: 55px 18px;
+  }
+  .section-header {
+    margin-bottom: 36px;
+  }
+  .section-title {
+    font-size: 2.1rem;
+  }
   .nav-menu {
     position: fixed;
     top: 65px;
     left: -100%;
     width: 100%;
     height: calc(100vh - 65px);
-    background: var(--nav-bg);
+    background: rgba(11, 11, 15, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
     justify-content: center;
-    gap: 36px;
+    gap: 28px;
     font-size: 1.2rem;
-    transition: left 0.3s ease;
+    transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
   }
   .nav-menu.active {
     left: 0;
   }
   .mobile-toggle {
     display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 6px;
   }
   .hero-name {
-    font-size: 2.8rem;
+    font-size: 2.7rem;
+  }
+  .hero-title {
+    font-size: 1.45rem;
+    min-height: auto;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+  .hero-intro {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+  .project-body {
+    padding: 24px 20px;
+  }
+  .project-name {
+    font-size: 1.5rem;
+  }
+  .project-actions {
+    flex-direction: column;
+  }
+  .project-actions .btn {
+    width: 100%;
+    justify-content: center;
   }
   .focus-cards-grid, .stats-grid, .form-row {
     grid-template-columns: 1fr;
@@ -1319,5 +1374,84 @@ button {
     flex-direction: column;
     gap: 16px;
     text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-container {
+    padding: 45px 14px;
+  }
+  .section-title {
+    font-size: 1.85rem;
+  }
+  .hero-name {
+    font-size: 2.2rem;
+  }
+  .hero-title {
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+  }
+  .profile-ring-container {
+    width: 230px;
+    height: 230px;
+  }
+  .profile-image-wrap {
+    width: 200px;
+    height: 200px;
+  }
+  .status-pill {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    bottom: -10px;
+  }
+  .hero-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .hero-cta-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  .contact-form {
+    padding: 22px 16px;
+  }
+  .contact-detail-card {
+    padding: 14px;
+    gap: 12px;
+  }
+  .skill-group-card {
+    padding: 20px 16px;
+  }
+  .timeline-card {
+    padding: 18px 16px;
+  }
+  .timeline-card-wrap {
+    padding-left: 50px;
+    padding-right: 10px;
+  }
+  .timeline-container::after {
+    left: 20px;
+  }
+  .timeline-node {
+    left: 13px !important;
+    width: 14px;
+    height: 14px;
+  }
+  .about-subheading {
+    font-size: 1.4rem;
+  }
+  .about-img {
+    height: 320px;
+  }
+}
+
+@media (pointer: coarse) {
+  #cursor-glow, #cursor-dot {
+    display: none !important;
   }
 }

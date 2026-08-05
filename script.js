@@ -17,6 +17,12 @@ function initCustomCursor() {
 
   if (!glow || !dot) return;
 
+  if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768) {
+    glow.style.display = 'none';
+    dot.style.display = 'none';
+    return;
+  }
+
   window.addEventListener('mousemove', (e) => {
     const { clientX: x, clientY: y } = e;
     
@@ -223,13 +229,28 @@ function initMobileNav() {
 
   if (!toggle || !menu) return;
 
+  const icon = toggle.querySelector('i');
+
   toggle.addEventListener('click', () => {
     menu.classList.toggle('active');
+    const isActive = menu.classList.contains('active');
+    
+    if (icon) {
+      if (isActive) {
+        icon.className = 'fa-solid fa-xmark';
+      } else {
+        icon.className = 'fa-solid fa-bars';
+      }
+    }
+    
+    document.body.style.overflow = isActive ? 'hidden' : '';
   });
 
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menu.classList.remove('active');
+      if (icon) icon.className = 'fa-solid fa-bars';
+      document.body.style.overflow = '';
     });
   });
 }
