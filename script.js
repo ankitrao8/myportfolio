@@ -172,7 +172,7 @@ function initScrollObserver() {
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  const observer = new IntersectionObserver((entries) => {
+  const navObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
@@ -188,7 +188,31 @@ function initScrollObserver() {
     });
   }, { threshold: 0.3 });
 
-  sections.forEach(sec => observer.observe(sec));
+  sections.forEach(sec => navObserver.observe(sec));
+
+  // Reveal animations on scroll
+  const targets = document.querySelectorAll(
+    '.section-header, .glass-card, .skill-group-card, .project-card, .timeline-card, .contact-info-card, .contact-form, .info-card, .focus-card'
+  );
+
+  targets.forEach(el => {
+    if (!el.classList.contains('reveal')) {
+      el.classList.add('reveal');
+    }
+  });
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  targets.forEach(t => revealObserver.observe(t));
 }
 
 function initStatCounters() {
@@ -231,7 +255,8 @@ function initMobileNav() {
 
   const icon = toggle.querySelector('i');
 
-  toggle.addEventListener('click', () => {
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     menu.classList.toggle('active');
     const isActive = menu.classList.contains('active');
     
@@ -252,6 +277,14 @@ function initMobileNav() {
       if (icon) icon.className = 'fa-solid fa-bars';
       document.body.style.overflow = '';
     });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+      menu.classList.remove('active');
+      if (icon) icon.className = 'fa-solid fa-bars';
+      document.body.style.overflow = '';
+    }
   });
 }
 
