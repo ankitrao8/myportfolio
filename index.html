@@ -32,7 +32,8 @@
   <header class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#hero" class="brand-logo">
-        <span class="logo-name">ANKIT</span><span class="logo-accent">.RAO</span>
+        <img src="assets/ar-logo-theme.png" alt="AR Logo" class="brand-ar-logo">
+        <span class="logo-text"><span class="logo-name">ANKIT</span><span class="logo-accent">.RAO</span></span>
       </a>
 
       <nav class="nav-menu" id="nav-menu">
@@ -43,6 +44,7 @@
         <a href="#portfolio" class="nav-link">Portfolio</a>
         <a href="#focus" class="nav-link">Focus</a>
         <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact" class="btn btn-sm btn-gradient mobile-menu-cta">Get In Touch</a>
       </nav>
 
       <div class="nav-actions">
@@ -64,8 +66,35 @@
         <div class="profile-ring-container">
           <div class="glowing-ring"></div>
           <div class="glowing-ring ring-2"></div>
+          <div class="glowing-ring ring-3"></div>
+
+          <!-- 3D Floating Tech Language Badges -->
+          <div class="floating-badge badge-cpp" title="C++">
+            <span class="cpp-text">C++</span>
+          </div>
+          <div class="floating-badge badge-java" title="Java">
+            <i class="fa-brands fa-java"></i>
+          </div>
+          <div class="floating-badge badge-react" title="React">
+            <i class="fa-brands fa-react"></i>
+          </div>
+          <div class="floating-badge badge-js" title="JavaScript">
+            <i class="fa-brands fa-js"></i>
+          </div>
+          <div class="floating-badge badge-python" title="Python">
+            <i class="fa-brands fa-python"></i>
+          </div>
+          <div class="floating-badge badge-node" title="Node.js">
+            <i class="fa-brands fa-node-js"></i>
+          </div>
+          <div class="floating-badge badge-html" title="HTML5 & CSS3">
+            <i class="fa-brands fa-html5"></i>
+          </div>
+
           <div class="profile-image-wrap">
             <img src="assets/hero-red-portrait.jpg" alt="Ankit Rao - Full Stack Developer Portrait" class="profile-img">
+            <div class="profile-scanner-overlay"></div>
+            <div class="profile-shimmer-overlay"></div>
           </div>
           <div class="status-pill">
             <span class="status-dot"></span>
@@ -100,35 +129,20 @@
             <i class="fa-solid fa-layer-group"></i>
             <span>View Projects</span>
           </a>
-          <a href="#contact" class="btn btn-glow">
-            <i class="fa-regular fa-paper-plane"></i>
-            <span>Contact Me</span>
-          </a>
         </div>
 
-        <div class="hero-socials">
-          <span class="socials-label">Connect With Me:</span>
-          <a href="https://github.com/ankitrao8" target="_blank" rel="noopener" aria-label="GitHub" class="social-icon">
+        <div class="hero-social-links">
+          <a href="https://github.com/ankitrao8" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
             <i class="fa-brands fa-github"></i>
           </a>
-          <a href="https://www.linkedin.com/in/ankit-rao-1265b6385" target="_blank" rel="noopener" aria-label="LinkedIn"
-            class="social-icon">
+          <a href="https://www.linkedin.com/in/ankit-rao-1265b6385" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
             <i class="fa-brands fa-linkedin-in"></i>
           </a>
-          <a href="mailto:arao49748@gmail.com" aria-label="Email" class="social-icon">
+          <a href="mailto:arao49748@gmail.com" class="social-icon" aria-label="Email">
             <i class="fa-solid fa-envelope"></i>
           </a>
         </div>
       </div>
-    </div>
-
-    <div class="scroll-indicator">
-      <a href="#about" aria-label="Scroll to About section">
-        <div class="mouse-icon">
-          <div class="mouse-wheel"></div>
-        </div>
-        <span>SCROLL DOWN</span>
-      </a>
     </div>
   </section>
 
@@ -261,9 +275,9 @@
               </div>
             </div>
             <div class="skill-item">
-              <div class="skill-meta"><span>JavaScript (ES6+)</span><span class="skill-pct">85%</span></div>
+              <div class="skill-meta"><span>JavaScript (ES6+) / React</span><span class="skill-pct">88%</span></div>
               <div class="progress-track">
-                <div class="progress-bar" style="width: 85%;"></div>
+                <div class="progress-bar" style="width: 88%;"></div>
               </div>
             </div>
           </div>
@@ -411,6 +425,7 @@
             <div class="project-tech-stack">
               <span><i class="fa-brands fa-python"></i> Python</span>
               <span><i class="fa-solid fa-eye"></i> OpenCV</span>
+              <span><i class="fa-brands fa-react"></i> React</span>
               <span><i class="fa-brands fa-html5"></i> HTML5</span>
               <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
             </div>
@@ -460,10 +475,10 @@
 
         <div class="glass-card focus-card tilt-card">
           <div class="focus-icon-wrap">
-            <i class="fa-solid fa-code"></i>
+            <i class="fa-brands fa-react"></i>
           </div>
-          <h3>Frontend Development</h3>
-          <p>Crafting responsive, glassmorphic, and accessible UI components with modern HTML5, CSS3, and JavaScript
+          <h3>React & Frontend Architecture</h3>
+          <p>Crafting responsive, glassmorphic, and accessible React UI components with modern JSX, hooks, and CSS
             standards.</p>
         </div>
 
@@ -591,13 +606,14 @@
     <div class="footer-container">
       <div class="footer-brand">
         <a href="#hero" class="brand-logo">
-          <span class="logo-name">ANKIT</span><span class="logo-accent">.RAO</span>
+          <img src="assets/ar-logo-theme.png" alt="AR Logo" class="brand-ar-logo">
+          <span class="logo-text"><span class="logo-name">ANKIT</span><span class="logo-accent">.RAO</span></span>
         </a>
         <p>B.Tech IT Student & Full Stack Developer</p>
       </div>
 
       <div class="footer-copy">
-        <p>&copy; 2026 Ankit Rao. Built with ❤️ using HTML, CSS, and JavaScript.</p>
+        <p>&copy; 2026 Ankit Rao. Built with ❤️ using React & Web Technologies.</p>
       </div>
     </div>
   </footer>
