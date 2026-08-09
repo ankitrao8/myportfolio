@@ -115,10 +115,6 @@ export default function Hero() {
 
   return (
     <section className="hero-section" id="hero">
-      <canvas id="hero-particles" ref={canvasRef}></canvas>
-      <div className="hero-glow-blob blob-1"></div>
-      <div className="hero-glow-blob blob-2"></div>
-
       <div className="hero-container">
         <div className="hero-profile-area">
           <div className="profile-ring-container">

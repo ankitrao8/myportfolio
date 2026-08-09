@@ -1907,3 +1907,320 @@ button {
 .skills-grid > *:nth-child(4), .projects-grid > *:nth-child(4), .focus-cards-grid > *:nth-child(4), .info-cards-grid > *:nth-child(4) { transition-delay: 0.38s; }
 .skills-grid > *:nth-child(5), .projects-grid > *:nth-child(5) { transition-delay: 0.48s; }
 .skills-grid > *:nth-child(6), .projects-grid > *:nth-child(6) { transition-delay: 0.58s; }
+
+/* ==========================================================================
+   TECH STACK 3D SECTION & CANVAS STYLES
+   ========================================================================== */
+.tech-stack-section {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.relative-z {
+  position: relative;
+  z-index: 2;
+}
+
+.tech-stack-bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.tech-view-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 5;
+}
+
+.tech-tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-muted);
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.tech-tab-btn:hover {
+  background: rgba(255, 107, 0, 0.15);
+  border-color: var(--accent-orange);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.tech-tab-btn.active {
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.3) 0%, rgba(255, 168, 0, 0.2) 100%);
+  border-color: var(--accent-orange);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.35);
+}
+
+.tech-ball-wrapper {
+  display: none;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 520px;
+  z-index: 4;
+}
+
+.tech-ball-wrapper.active {
+  display: block;
+}
+
+.tech-ball-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tech-ball-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+#tech-ball-canvas:active {
+  cursor: grabbing;
+}
+
+.ball-hover-info {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 20, 35, 0.85);
+  border: 1px solid rgba(157, 78, 223, 0.6);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  box-shadow: 0 0 15px rgba(157, 78, 223, 0.3);
+}
+
+.ball-hover-info i {
+  color: var(--accent-amber);
+}
+
+/* Reference Grid Matrix Layout */
+.tech-grid-view {
+  display: none;
+  width: 100%;
+}
+
+.tech-grid-view.active {
+  display: block;
+}
+
+.tech-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 16px;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tech-badge-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  backdrop-filter: blur(12px);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tech-badge-card:hover {
+  background: rgba(157, 78, 223, 0.12);
+  border-color: rgba(255, 107, 0, 0.5);
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 10px 30px rgba(255, 107, 0, 0.25), 0 0 15px rgba(157, 78, 223, 0.3);
+}
+
+.tech-badge-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.tech-badge-card:hover .tech-badge-icon {
+  transform: scale(1.15) rotate(4deg);
+  color: var(--accent-orange);
+  background: rgba(255, 107, 0, 0.15);
+  border-color: var(--accent-orange);
+}
+
+.badge-text-icon {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--accent-amber);
+}
+
+.tech-badge-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 768px) {
+  .tech-ball-canvas-container {
+    height: 420px;
+  }
+  .tech-matrix-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+  }
+  .tech-badge-card {
+    padding: 14px 8px;
+  }
+  .tech-badge-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+}
+
+/* Global 3D Particle Starfield Background Canvas */
+.global-3d-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Remove Orange Glow Blobs from Landing Page */
+.hero-glow-blob {
+  display: none !important;
+}
+
+/* ==========================================================================
+   SMOOTH ATTRACTIVE PAGE OPENING LOADER & ENTRANCE ANIMATIONS
+   ========================================================================== */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0b0b0b;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease;
+  pointer-events: all;
+}
+
+.page-loader.loaded {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.loader-logo {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.loader-bar-wrap {
+  width: 220px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: 999px;
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 12px rgba(255, 107, 0, 0.8);
+}
+
+.loader-status {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+}
+
+/* Hero Opening Entrance Stagger */
+.hero-section .hero-profile-area {
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.hero-section .hero-text-area {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.45s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
+}
+
+.hero-section.hero-entrance .hero-profile-area,
+.hero-section.hero-entrance .hero-text-area {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
