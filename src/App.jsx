@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import ScrollProgress from './components/ScrollProgress';
 import CustomCursor from './components/CustomCursor';
+import Global3DParticles from './components/Global3DParticles';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -73,6 +74,7 @@ export default function App() {
 
   return (
     <div className="portfolio-app">
+      <Global3DParticles />
       <ScrollProgress />
       <CustomCursor />
       <Navbar />
